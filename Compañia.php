@@ -72,6 +72,38 @@ class Avion
 
 
 
+
+
+// Crear un objeto Avion
+$miAvion = new Avion("ABC123", "Norweian");
+
+// Mostrar información inicial
+echo "/////////////////INFORMACIÓN AVIÓN/////////////////// <br>";
+$miAvion->mostrarInformacion();
+
+// Cambiar el ID y el nombre de la compañía
+$miAvion->setID("XYZ789");
+$miAvion->setNombreCompañia("Ryanair");
+
+// Mostrar información actualizada
+echo "<br>Información actualizada del avión:<br>";
+$miAvion->mostrarInformacion();
+
+// Obtener el número total de plazas
+$totalPlazas = Avion::getTotalPlazas();
+echo "<br>Número total de plazas: $totalPlazas<br>";
+
+// Calcular la ocupación con 50 asientos ocupados
+$ocupacion = $miAvion->calcularOcupacion(50);
+echo "Ocupación del avión con 50 asientos ocupados: $ocupacion%<br>";
+
+// Obtener el ID y el nombre de la compañía
+$idAvion = $miAvion->getID();
+$nombreCompania = $miAvion->getNombreCompañia();
+echo "<br>ID del avión: $idAvion<br>";
+echo "Nombre de la compañía: $nombreCompania<br>";
+
+
 class pasajeros extends Avion
 {
 
@@ -145,11 +177,12 @@ class pasajeros extends Avion
         $this->nombreCompañia = $NumeroAsiento;
     }
 
+
     // Método de igualdad que compara DNIs
     public function esIgual($otroDni)
     {
         if ($this->DNI === $otroDni) {
-            return "Ya hay una persona con el mismo DNI ({$this->DNI}). No se pueden repetir.";
+            return "El DNI {$this->DNI} coincide con el DNI proporcionado ({$otroDni}). No se pueden repetir.";
         } else {
             return false;
         }
@@ -168,7 +201,44 @@ class pasajeros extends Avion
 }
 
 
-    
+// Crear un objeto Pasajero
+$miPasajero = new pasajeros("ABC123", "Norweian", "Judith", "Soro", "123456789B", "A12");
+
+// Mostrar información del pasajero
+echo "/////////////////INFORMACIÓN PASAJEROS/////////////////// <br>";
+$miPasajero->mostrarInformacion();
+
+// Cambiar el nombre, apellido, DNI y número de asiento del pasajero
+$miPasajero->setNombre("Óscar");
+$miPasajero->setApellido("Yávar");
+$miPasajero->setDNI("987654321L");
+$miPasajero->setNumeroAsiento("B34");
+
+// Mostrar información actualizada del pasajero
+echo "<br>Información actualizada del pasajero:<br>";
+$miPasajero->mostrarInformacion();
+
+// Obtener el nombre, apellido, DNI y número de asiento del pasajero
+$nombrePasajero = $miPasajero->getNombre();
+$apellidoPasajero = $miPasajero->getApellido();
+$dniPasajero = $miPasajero->getDNI();
+$asientoPasajero = $miPasajero->getNumeroAsiento();
+
+echo "<br>Nombre del pasajero: $nombrePasajero<br>";
+echo "Apellido del pasajero: $apellidoPasajero<br>";
+echo "DNI del pasajero: $dniPasajero<br>";
+echo "Número de asiento del pasajero: $asientoPasajero<br>";
+
+// Verificar si dos DNIs son iguales
+$otroDni = "987654321";
+$resultadoComparacion = $miPasajero->esIgual($otroDni);
+
+if ($resultadoComparacion) {
+    echo $resultadoComparacion;
+} else {
+    echo "Los DNIs no coinciden.";
+}
+
 
 
 

@@ -156,25 +156,25 @@ class pasajeros extends Avion
     // Método que modifica el nombre
     public function setNombre($Nombre)
     {
-        $this->nombreCompañia = $Nombre;
+        $this->Nombre = $Nombre;
     }
 
     // Método que modifica el apellido
     public function setApellido($Apellido)
     {
-        $this->nombreCompañia = $Apellido;
+        $this->Apellido = $Apellido;
     }
 
     // Método que modifica el DNI
     public function setDNI($DNI)
     {
-        $this->nombreCompañia = $DNI;
+        $this->DNI = $DNI;
     }
 
     // Método que modifica el numero del asiento
     public function setNumeroAsiento($NumeroAsiento)
     {
-        $this->nombreCompañia = $NumeroAsiento;
+        $this->NumeroAsiento = $NumeroAsiento;
     }
 
 
